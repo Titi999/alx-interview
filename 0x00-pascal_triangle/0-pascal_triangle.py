@@ -8,11 +8,10 @@ def pascal_triangle(n):
     if n > 0:
         for i in range(n):
             for j in range(i+1):
-                val = factorial(i)//(factorial(j)*factorial(i-j))
-                p.append(val)
+                p.append(factorial(i)//(factorial(j)*factorial(i-j)))
             pascal.append(p)
             p = []
         return pascal
 
     else:
-        return n <= 0
+        return []
