@@ -1,14 +1,27 @@
 #!/usr/bin/python3
+
+"""
+Module 0-pascal_pascal
+"""
+
+
 def pascal_triangle(n):
+    """
+    returns a list of integers
+    representing Pascal's triangle
+    """
     if n <= 0:
         return []
-    pascal = [0] * n
-    for i in range(n):
-        new = [0] * (i + 1)
-        new[0] = 1
-        new[len(new) - 1] = 1
-        for j in range(1, i):
-            if 0 < j < len(new):
-                new[j] = pascal[i - 1][j] + pascal[i - 1][j - 1]
-        pascal[i] = new
+
+    pascal = [[1]]
+
+    # iterate to up size n - 1
+    for i in range(n - 1):
+        temp = [0] + pascal[-1] + [0]
+        row = []
+        for j in range(len(pascal[-1]) + 1):
+            # add values to next new row
+            row.append(temp[j] + temp[j + 1])
+        # add the row to the pascal
+        pascal.append(row)
     return pascal
