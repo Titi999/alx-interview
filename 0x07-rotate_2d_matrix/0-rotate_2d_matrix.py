@@ -5,4 +5,3 @@ def rotate_2d_matrix(matrix):
         rotate.append([j[i] for j in reversed(matrix)])
     matrix.clear()
     matrix += rotate
-    return matrix
